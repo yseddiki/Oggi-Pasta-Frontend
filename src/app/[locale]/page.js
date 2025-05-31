@@ -1,77 +1,120 @@
 // src/app/[locale]/page.js
-import React from 'react';
-import {Link} from '../../i18n/navigation';
-import {getTranslations} from 'next-intl/server';
+"use client";
 
-export default async function Home() {
-  const t = await getTranslations();
+import React from 'react';
+import { Link } from '../../i18n/navigation';
+import BackgroundVideo from '../components/BackgroundVideo';
+import useSimpleTranslate from '../hooks/useTranslate';
+
+// Translation data
+const translations = {
+  restaurantName: {
+    en: "Oggi Pasta",
+    fr: "Oggi Pasta", 
+    nl: "Oggi Pasta"
+  },
+  menu: {
+    en: "Menu",
+    fr: "Menu",
+    nl: "Menu"
+  },
+  enterprise: {
+    en: "Enterprise", 
+    fr: "Entreprise",
+    nl: "Onderneming"
+  },
+  contact: {
+    en: "Contact",
+    fr: "Contact", 
+    nl: "Contact"
+  },
+  welcomeTitle: {
+    en: "Welcome to Oggi Pasta",
+    fr: "Bienvenue chez Oggi Pasta",
+    nl: "Welkom bij Oggi Pasta"
+  },
+  welcomeDescription: {
+    en: "Experience authentic Italian cuisine with our carefully crafted pasta dishes and warm hospitality in the heart of Brussels.",
+    fr: "Découvrez la cuisine italienne authentique avec nos plats de pâtes soigneusement préparés et notre hospitalité chaleureuse au cœur de Bruxelles.", 
+    nl: "Ervaar authentieke Italiaanse keuken met onze zorgvuldig bereide pastagerechten en warme gastvrijheid in het hart van Brussel."
+  },
+  exploreMenu: {
+    en: "Explore Menu",
+    fr: "Découvrir le Menu",
+    nl: "Menu Ontdekken"
+  },
+  enterpriseServices: {
+    en: "Enterprise Services",
+    fr: "Services Entreprise", 
+    nl: "Ondernemingsdiensten"
+  },
+  findUs: {
+    en: "Find Us",
+    fr: "Nous Trouver",
+    nl: "Vind Ons"
+  },
+  address: {
+    en: "Address",
+    fr: "Adresse",
+    nl: "Adres"
+  },
+  addressDetails: {
+    en: "Chaussée de Charleroi 132, 1060 Saint-Gilles, Brussels",
+    fr: "Chaussée de Charleroi 132, 1060 Saint-Gilles, Bruxelles",
+    nl: "Chaussée de Charleroi 132, 1060 Sint-Gillis, Brussel"
+  },
+  phone: {
+    en: "Phone",
+    fr: "Téléphone", 
+    nl: "Telefoon"
+  },
+  hours: {
+    en: "Opening Hours",
+    fr: "Heures d'Ouverture",
+    nl: "Openingsuren"
+  },
+  hoursWeekdays: {
+    en: "Mon-Thu: 11:30am-10:00pm",
+    fr: "Lun-Jeu: 11h30-22h00",
+    nl: "Ma-Do: 11u30-22u00"
+  },
+  hoursWeekend: {
+    en: "Fri-Sat: 11:30am-10:30pm", 
+    fr: "Ven-Sam: 11h30-22h30",
+    nl: "Vr-Za: 11u30-22u30"
+  },
+  hoursSunday: {
+    en: "Sun: 12:00pm-9:30pm",
+    fr: "Dim: 12h00-21h30",
+    nl: "Zo: 12u00-21u30"
+  }
+};
+
+export default function Home() {
+  const translate = useSimpleTranslate();
   
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        >
-          <source src="/homevideo.mp4" type="video/mp4" />
-          {/* Optionally keep the webm or fallback sources if available */}
-          Your browser does not support the video tag.
-        </video>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      </div>
-
-      {/* Navigation Bar */}
-      <nav className="relative z-20 flex justify-between items-center p-6 bg-black bg-opacity-20 backdrop-blur-sm">
-        <div className="text-white text-xl font-bold">
-          {t('restaurantName', {default: 'Restaurant Name'})}
-        </div>
-        <div className="flex space-x-6">
-          <Link 
-            href="/menu" 
-            className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium"
-          >
-            {t('menu', {default: 'Menu'})}
-          </Link>
-          <Link 
-            href="/enterprise" 
-            className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium"
-          >
-            {t('enterprise', {default: 'Enterprise'})}
-          </Link>
-          <Link 
-            href="/contact" 
-            className="text-white hover:text-yellow-400 transition-colors duration-300 font-medium"
-          >
-            {t('contact', {default: 'Contact'})}
-          </Link>
-        </div>
-      </nav>
-
+    <BackgroundVideo videoSrc="/homevideo.webm" overlayOpacity={40}>
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-8 text-center">
+      <div className="flex flex-col items-center justify-center min-h-screen px-8 text-center">
         <main className="max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg leading-tight">
-            {t('welcomeTitle')}
+            {translate(translations.welcomeTitle)}
           </h1>
           <p className="text-xl md:text-2xl text-white mb-8 drop-shadow-md max-w-2xl mx-auto leading-relaxed">
-            {t('welcomeDescription')}
+            {translate(translations.welcomeDescription)}
           </p>
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/menu">
               <button className="px-8 py-4 bg-yellow-500 text-black font-semibold rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                {t('exploreMenu')}
+                {translate(translations.exploreMenu)}
               </button>
             </Link>
             <Link href="/enterprise">
               <button className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transform hover:scale-105 transition-all duration-300 shadow-lg">
-                {t('enterprise', {default: 'Enterprise Services'})}
+                {translate(translations.enterpriseServices)}
               </button>
             </Link>
           </div>
@@ -79,13 +122,13 @@ export default async function Home() {
       </div>
 
       {/* Google Maps Section */}
-      <div className="relative z-10 bg-white py-16">
+      <div className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Location Info */}
             <div>
               <h2 className="text-3xl font-bold mb-6 text-gray-800">
-                {t('findUs', {default: 'Find Us'})}
+                {translate(translations.findUs)}
               </h2>
               <div className="space-y-4 text-gray-600">
                 <div className="flex items-start space-x-3">
@@ -93,8 +136,10 @@ export default async function Home() {
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <h3 className="font-semibold text-gray-800">{t('address', {default: 'Address'})}</h3>
-                    <p>123 Restaurant Street<br />City, State 12345</p>
+                    <h3 className="font-semibold text-gray-800">
+                      {translate(translations.address)}
+                    </h3>
+                    <p>{translate(translations.addressDetails)}</p>
                   </div>
                 </div>
                 
@@ -103,8 +148,10 @@ export default async function Home() {
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   <div>
-                    <h3 className="font-semibold text-gray-800">{t('phone', {default: 'Phone'})}</h3>
-                    <p>(555) 123-4567</p>
+                    <h3 className="font-semibold text-gray-800">
+                      {translate(translations.phone)}
+                    </h3>
+                    <p>+32 2 537 15 89</p>
                   </div>
                 </div>
                 
@@ -113,8 +160,14 @@ export default async function Home() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <h3 className="font-semibold text-gray-800">{t('hours', {default: 'Hours'})}</h3>
-                    <p>Mon-Thu: 11am-10pm<br />Fri-Sat: 11am-11pm<br />Sun: 12pm-9pm</p>
+                    <h3 className="font-semibold text-gray-800">
+                      {translate(translations.hours)}
+                    </h3>
+                    <div className="space-y-1">
+                      <p>{translate(translations.hoursWeekdays)}</p>
+                      <p>{translate(translations.hoursWeekend)}</p>
+                      <p>{translate(translations.hoursSunday)}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -136,6 +189,6 @@ export default async function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </BackgroundVideo>
   );
 }
