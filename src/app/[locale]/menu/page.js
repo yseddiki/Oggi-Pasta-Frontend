@@ -1,84 +1,84 @@
-import translations from '../translate';
+// src/app/[locale]/menu/page.js
+import {useTranslations} from 'next-intl';
 
 export default function Menu() {
-  const language = 'en'; // Change this to 'fr' for French
-  const t = translations[language];
+  const t = useTranslations();
 
   const menuItems = [
     {
-      category: t.categories.classicPasta,
+      category: t('categories.classicPasta'),
       items: [
-        { name: t.items.pestoVerde, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.arrabiata, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.bolognaise, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.carbonara, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.cremeChampignonPoulet, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.scampiCreme, price: "Medium € 10,00 / Large € 12,00" },
-        { name: t.items.fourCheeses, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.indy, price: "Medium € 8,00 / Large € 10,00" },
-        { name: t.items.oggi, price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.pestoVerde'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.arrabiata'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.bolognaise'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.carbonara'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.cremeChampignonPoulet'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.scampiCreme'), price: "Medium € 10,00 / Large € 12,00" },
+        { name: t('items.fourCheeses'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.indy'), price: "Medium € 8,00 / Large € 10,00" },
+        { name: t('items.oggi'), price: "Medium € 8,00 / Large € 10,00" },
       ],
     },
     {
-      category: t.categories.stuffedBeefPasta,
+      category: t('categories.stuffedBeefPasta'),
       items: [
-        { name: t.items.pestoVerde, price: "€ 12,00 / € 14,50" },
-        { name: t.items.arrabiata, price: "€ 12,00 / € 14,50" },
-        { name: t.items.bolognaise, price: "€ 12,00 / € 14,50" },
-        { name: t.items.carbonara, price: "€ 12,00 / € 14,50" },
-        { name: t.items.cremeChampignonPoulet, price: "€ 12,00 / € 14,50" },
-        { name: t.items.scampiCreme, price: "€ 14,00 / € 16,50" },
-        { name: t.items.fourCheeses, price: "€ 12,00 / € 14,50" },
-        { name: t.items.indy, price: "€ 12,00 / € 14,50" },
-        { name: t.items.oggi, price: "€ 12,00 / € 14,50" },
+        { name: t('items.pestoVerde'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.arrabiata'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.bolognaise'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.carbonara'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.cremeChampignonPoulet'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.scampiCreme'), price: "€ 14,00 / € 16,50" },
+        { name: t('items.fourCheeses'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.indy'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.oggi'), price: "€ 12,00 / € 14,50" },
       ],
     },
     {
-      category: t.categories.stuffedRicottaPasta,
+      category: t('categories.stuffedRicottaPasta'),
       items: [
-        { name: t.items.pestoVerde, price: "€ 12,00 / € 14,50" },
-        { name: t.items.arrabiata, price: "€ 12,00 / € 14,50" },
-        { name: t.items.bolognaise, price: "€ 12,00 / € 14,50" },
-        { name: t.items.carbonara, price: "€ 12,00 / € 14,50" },
-        { name: t.items.cremeChampignonPoulet, price: "€ 12,00 / € 14,50" },
-        { name: t.items.scampiCreme, price: "€ 14,00 / € 16,50" },
-        { name: t.items.fourCheeses, price: "€ 12,00 / € 14,50" },
-        { name: t.items.indy, price: "€ 12,00 / € 14,50" },
-        { name: t.items.oggi, price: "€ 12,00 / € 14,50" },
+        { name: t('items.pestoVerde'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.arrabiata'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.bolognaise'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.carbonara'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.cremeChampignonPoulet'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.scampiCreme'), price: "€ 14,00 / € 16,50" },
+        { name: t('items.fourCheeses'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.indy'), price: "€ 12,00 / € 14,50" },
+        { name: t('items.oggi'), price: "€ 12,00 / € 14,50" },
       ],
     },
     {
-      category: t.categories.lasagna,
+      category: t('categories.lasagna'),
       items: [
-        { name: t.items.lasagna, price: "€ 12,00" },
+        { name: t('items.lasagna'), price: "€ 12,00" },
       ],
     },
     {
-      category: t.categories.starters,
+      category: t('categories.starters'),
       items: [
-        { name: t.items.burrata, price: "€ 9,50" },
-        { name: t.items.cherryTomatoes, price: "€ 9,50" },
+        { name: t('items.burrata'), price: "€ 9,50" },
+        { name: t('items.cherryTomatoes'), price: "€ 9,50" },
       ],
     },
     {
-      category: t.categories.desserts,
+      category: t('categories.desserts'),
       items: [
-        { name: t.items.cheesecake, price: "€ 5,50" },
-        { name: t.items.chocolateCake, price: "€ 5,50" },
-        { name: t.items.tiramisu, price: "€ 4,50" },
+        { name: t('items.cheesecake'), price: "€ 5,50" },
+        { name: t('items.chocolateCake'), price: "€ 5,50" },
+        { name: t('items.tiramisu'), price: "€ 4,50" },
       ],
     },
     {
-      category: t.categories.drinks,
+      category: t('categories.drinks'),
       items: [
-        { name: t.items.softDrink, price: "€ 2,00" },
+        { name: t('items.softDrink'), price: "€ 2,00" },
       ],
     },
   ];
 
   return (
     <div className="menu-container p-8">
-      <h1 className="text-3xl font-bold mb-6 pt-8 text-center">{t.menuTitle}</h1>
+      <h1 className="text-3xl font-bold mb-6 pt-8 text-center">{t('menuTitle')}</h1>
       <div className="menu-items space-y-8">
         {menuItems.map((category, index) => (
           <div key={index} className="menu-category">
