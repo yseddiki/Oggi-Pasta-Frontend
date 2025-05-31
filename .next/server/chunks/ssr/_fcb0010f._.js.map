@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 24, "column": 0}, "map": {"version":3,"sources":["file://C%3A/youssef/Oggi-pasta/frontend/src/app/page.js"],"sourcesContent":["import Image from \"next/image\";\nimport Navbar from \"@/components/Navbar\";\n\nexport default function Home() {\n  return (\n    <div className=\"grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]\">\n        <Navbar />\n        <main className=\"flex flex-col gap-8 items-center\">\n        <Image\n          className=\"dark:invert\"\n          src=\"/next.svg\"\n          alt=\"Next.js logo\"\n          width={180}\n          height={38}\n          priority\n        />\n        <h1 className=\"text-2xl font-bold\">Welcome to Our Application</h1>\n        <p className=\"text-center\">\n          This is the home page. You can navigate to the menu or entreprise forfait pages using the links above.\n        </p>\n      </main>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;AAAA;;;;;;;;;AAGe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;0BACX,8OAAC;;;;;0BACD,8OAAC;gBAAK,WAAU;;kCAChB,8OAAC,6HAAA,CAAA,UAAK;wBACJ,WAAU;wBACV,KAAI;wBACJ,KAAI;wBACJ,OAAO;wBACP,QAAQ;wBACR,QAAQ;;;;;;kCAEV,8OAAC;wBAAG,WAAU;kCAAqB;;;;;;kCACnC,8OAAC;wBAAE,WAAU;kCAAc;;;;;;;;;;;;;;;;;;AAMnC","debugId":null}}]
+}

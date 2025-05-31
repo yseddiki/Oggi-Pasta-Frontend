@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 23, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/middleware.js"],"sourcesContent":["import createMiddleware from 'next-intl/middleware';\r\n\r\nexport default createMiddleware({\r\n    // A list of all locales supported by your application\r\n    locales: ['en', 'fr', 'it'],\r\n\r\n    // The default locale to be used when visiting a non-locale prefixed path\r\n    defaultLocale: 'en'\r\n});\r\n\r\nexport const config = {\r\n    // Skip all paths that should not be internationalized\r\n    matcher: ['/','/(fr|en|nl)/:path+']\r\n};"],"names":[],"mappings":";;;;AAAA;;uCAEe,CAAA,GAAA,8LAAA,CAAA,UAAgB,AAAD,EAAE;IAC5B,sDAAsD;IACtD,SAAS;QAAC;QAAM;QAAM;KAAK;IAE3B,yEAAyE;IACzE,eAAe;AACnB;AAEO,MAAM,SAAS;IAClB,sDAAsD;IACtD,SAAS;QAAC;QAAI;KAAqB;AACvC"}}]
+}
