@@ -1,10 +1,13 @@
 # Dependency directories
 /node_modules/
-/.next/
+/.next/   <-- Remove or comment out this line
+/.next/server/
+.next/static/
+.next/cache/
+
 # Build output
 /dist/
 /build/
-
 
 # Environment variables
 .env
