@@ -17,7 +17,7 @@ export default async function Home() {
           playsInline
           className="w-full h-full object-cover"
         >
-          <source src="/home.mp4" type="video/mp4" />
+          <source src="/homevideo.mp4" type="video/mp4" />
           {/* Optionally keep the webm or fallback sources if available */}
           Your browser does not support the video tag.
         </video>
