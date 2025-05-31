@@ -23,22 +23,22 @@ export function generateStaticParams() {
 }
 
 export default async function RootLayout({ children, params }) {
-  // Await params before using its properties
-  const { locale } = await params;
+  // Handle params properly for Next.js 15
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
   
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
+  // Providing all messages to the client with the specific locale
+  const messages = await getMessages({locale});
 
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <Navbar />
           <div className="pt-16">{/* Add padding to avoid overlap with fixed navbar */}
             {children}
@@ -52,8 +52,9 @@ export default async function RootLayout({ children, params }) {
 }
 
 export async function generateMetadata({ params }) {
-  // Await params before using its properties
-  const { locale } = await params;
+  // Handle params properly for Next.js 15
+  const resolvedParams = await params;
+  const { locale } = resolvedParams;
   const messages = await getMessages({locale});
   
   return {

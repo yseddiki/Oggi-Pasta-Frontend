@@ -3,6 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import {Link} from '../../i18n/navigation';
 import {getTranslations} from 'next-intl/server';
+import {useLocale} from 'next-intl';
 
 const Footer = async () => {
     const currentYear = new Date().getFullYear();
