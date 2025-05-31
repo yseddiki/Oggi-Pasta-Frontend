@@ -1,8 +1,8 @@
 // src/app/[locale]/entreprise/page.js
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-export default function EntrepriseForfait() {
-  const t = useTranslations('navigation');
+export default async function EntrepriseForfait() {
+  const t = await getTranslations('navigation');
   
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8">

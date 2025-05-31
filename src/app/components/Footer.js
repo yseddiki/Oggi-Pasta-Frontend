@@ -2,11 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import {Link} from '../../i18n/navigation';
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-const Footer = () => {
+const Footer = async () => {
     const currentYear = new Date().getFullYear();
-    const t = useTranslations();
+    const t = await getTranslations();
     
     return (
         <footer style={{ padding: '20px'  }}>

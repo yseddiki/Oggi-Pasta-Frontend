@@ -1,8 +1,8 @@
 // src/app/[locale]/menu/page.js
-import {useTranslations} from 'next-intl';
+import {getTranslations} from 'next-intl/server';
 
-export default function Menu() {
-  const t = useTranslations();
+export default async function Menu() {
+  const t = await getTranslations();
 
   const menuItems = [
     {

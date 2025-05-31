@@ -2,19 +2,23 @@
 "use client";
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import {Link, useRouter, usePathname} from '../../i18n/navigation';
 import {useLocale, useTranslations} from 'next-intl';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const t = useTranslations('navigation');
 
   const handleLanguageChange = (newLocale) => {
-    router.replace(pathname, {locale: newLocale});
+    startTransition(() => {
+      router.replace(pathname, {locale: newLocale});
+      router.refresh();
+    });
   };
 
   return (
@@ -46,19 +50,34 @@ const Navbar = () => {
           <div className="flex space-x-2">
             <button
               onClick={() => handleLanguageChange('en')}
-              className={`px-2 py-1 rounded ${locale === 'en' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'en' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-700 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               EN
             </button>
             <button
               onClick={() => handleLanguageChange('fr')}
-              className={`px-2 py-1 rounded ${locale === 'fr' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'fr' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-700 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               FR
             </button>
             <button
               onClick={() => handleLanguageChange('nl')}
-              className={`px-2 py-1 rounded ${locale === 'nl' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'nl' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-700 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               NL
             </button>
@@ -80,19 +99,34 @@ const Navbar = () => {
           <div className="flex space-x-2 pt-2">
             <button
               onClick={() => handleLanguageChange('en')}
-              className={`px-2 py-1 rounded ${locale === 'en' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'en' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-600 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               EN
             </button>
             <button
               onClick={() => handleLanguageChange('fr')}
-              className={`px-2 py-1 rounded ${locale === 'fr' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'fr' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-600 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               FR
             </button>
             <button
               onClick={() => handleLanguageChange('nl')}
-              className={`px-2 py-1 rounded ${locale === 'nl' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+              disabled={isPending}
+              className={`px-2 py-1 rounded transition-colors ${
+                locale === 'nl' 
+                  ? 'bg-white text-black' 
+                  : 'hover:bg-gray-600 text-white'
+              } ${isPending ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               NL
             </button>
