@@ -1,9 +1,10 @@
 # Dependency directories
 /node_modules/
-
+/.next/
 # Build output
 /dist/
 /build/
+
 
 # Environment variables
 .env
