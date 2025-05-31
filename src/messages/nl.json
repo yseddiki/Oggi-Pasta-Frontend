@@ -1,48 +1,46 @@
 {
-    "en": {
-        "menuTitle": "Our Menu",
-        "welcomeTitle": "Welcome to Oggi Pasta",
-        "welcomeDescription": "Discover the finest pasta dishes made with love and fresh ingredients.",
-        "exploreMenu": "Explore Menu",
-        "categories": {
-            "classicPasta": "Classic Pasta",
-            "stuffedBeefPasta": "Stuffed Beef Pasta",
-            "stuffedRicottaPasta": "Stuffed Ricotta Pasta",
-            "supplements": "Supplements",
-            "lasagna": "Lasagna",
-            "starters": "Starters",
-            "desserts": "Desserts",
-            "drinks": "Drinks"
-        },
-        "items": {
-            "pestoVerde": "Pesto Verde",
-            "arrabiata": "Arrabiata",
-            "bolognaise": "Bolognese",
-            "carbonara": "Carbonara",
-            "cremeChampignonPoulet": "Cream Mushroom Chicken",
-            "scampiCreme": "Scampi Cream",
-            "fourCheeses": "4 Cheeses",
-            "indy": "Indy (Chicken Curry)",
-            "oggi": "Oggi",
-            "emmental": "Emmental",
-            "parmesan": "Parmesan",
-            "chicken": "Chicken",
-            "noChicken": "No Chicken",
-            "scampi": "Scampi",
-            "lasagna": "Lasagna",
-            "burrata": "Buffalo Burrata",
-            "cherryTomatoes": "Cherry Tomatoes with Pesto",
-            "cheesecake": "Caramel Cheesecake",
-            "chocolateCake": "Chocolate Fondant",
-            "tiramisu": "Tiramisu",
-            "softDrink": "Soft Drink"
-        },
-        "navigation": {
-            "menu": "Menu",
-            "enterprise": "Enterprise"
-        },
-        "footer": {
-            "allRightsReserved": "All rights reserved."
-        }
-    }
+  "menuTitle": "Ons Menu",
+  "welcomeTitle": "Welkom bij Oggi Pasta",
+  "welcomeDescription": "Ontdek de beste pastagerechten, gemaakt met liefde en verse ingrediënten.",
+  "exploreMenu": "Bekijk Menu",
+  "categories": {
+    "classicPasta": "Klassieke Pasta",
+    "stuffedBeefPasta": "Gevulde Pasta Rundvlees",
+    "stuffedRicottaPasta": "Gevulde Pasta Ricotta",
+    "supplements": "Supplementen",
+    "lasagna": "Lasagne",
+    "starters": "Voorgerechten",
+    "desserts": "Desserts",
+    "drinks": "Dranken"
+  },
+  "items": {
+    "pestoVerde": "Pesto Verde",
+    "arrabiata": "Arrabiata",
+    "bolognaise": "Bolognaise",
+    "carbonara": "Carbonara",
+    "cremeChampignonPoulet": "Champignonroom Kip",
+    "scampiCreme": "Scampi Room",
+    "fourCheeses": "4 Kazen",
+    "indy": "Indy (kip kerrie)",
+    "oggi": "Oggi",
+    "emmental": "Emmental",
+    "parmesan": "Parmezaan",
+    "chicken": "Kip",
+    "noChicken": "Zonder kip",
+    "scampi": "Scampi",
+    "lasagna": "Lasagne",
+    "burrata": "Burrata di Bufala",
+    "cherryTomatoes": "Kerstomaten met pesto",
+    "cheesecake": "Cheesecake Karamel",
+    "chocolateCake": "Chocolade Moelleux",
+    "tiramisu": "Tiramisu",
+    "softDrink": "Frisdrank"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "enterprise": "Bedrijf"
+  },
+  "footer": {
+    "allRightsReserved": "Alle rechten voorbehouden."
+  }
 }

@@ -1,48 +1,46 @@
 {
-    "en": {
-        "menuTitle": "Our Menu",
-        "welcomeTitle": "Welcome to Oggi Pasta",
-        "welcomeDescription": "Discover the finest pasta dishes made with love and fresh ingredients.",
-        "exploreMenu": "Explore Menu",
-        "categories": {
-            "classicPasta": "Classic Pasta",
-            "stuffedBeefPasta": "Stuffed Beef Pasta",
-            "stuffedRicottaPasta": "Stuffed Ricotta Pasta",
-            "supplements": "Supplements",
-            "lasagna": "Lasagna",
-            "starters": "Starters",
-            "desserts": "Desserts",
-            "drinks": "Drinks"
-        },
-        "items": {
-            "pestoVerde": "Pesto Verde",
-            "arrabiata": "Arrabiata",
-            "bolognaise": "Bolognese",
-            "carbonara": "Carbonara",
-            "cremeChampignonPoulet": "Cream Mushroom Chicken",
-            "scampiCreme": "Scampi Cream",
-            "fourCheeses": "4 Cheeses",
-            "indy": "Indy (Chicken Curry)",
-            "oggi": "Oggi",
-            "emmental": "Emmental",
-            "parmesan": "Parmesan",
-            "chicken": "Chicken",
-            "noChicken": "No Chicken",
-            "scampi": "Scampi",
-            "lasagna": "Lasagna",
-            "burrata": "Buffalo Burrata",
-            "cherryTomatoes": "Cherry Tomatoes with Pesto",
-            "cheesecake": "Caramel Cheesecake",
-            "chocolateCake": "Chocolate Fondant",
-            "tiramisu": "Tiramisu",
-            "softDrink": "Soft Drink"
-        },
-        "navigation": {
-            "menu": "Menu",
-            "enterprise": "Enterprise"
-        },
-        "footer": {
-            "allRightsReserved": "All rights reserved."
-        }
-    }
+  "menuTitle": "Notre Menu",
+  "welcomeTitle": "Bienvenue chez Oggi Pasta",
+  "welcomeDescription": "Découvrez les meilleurs plats de pâtes préparés avec amour et des ingrédients frais.",
+  "exploreMenu": "Explorer le Menu",
+  "categories": {
+    "classicPasta": "Pâtes Classiques",
+    "stuffedBeefPasta": "Pâtes Farcies Bœuf",
+    "stuffedRicottaPasta": "Pâtes Farcies Ricotta",
+    "supplements": "Suppléments",
+    "lasagna": "Lasagne",
+    "starters": "Entrées",
+    "desserts": "Desserts",
+    "drinks": "Softs"
+  },
+  "items": {
+    "pestoVerde": "Pesto Verde",
+    "arrabiata": "Arrabiata",
+    "bolognaise": "Bolognaise",
+    "carbonara": "Carbonara",
+    "cremeChampignonPoulet": "Crème champignon poulet",
+    "scampiCreme": "Scampi Crème",
+    "fourCheeses": "4 Fromages",
+    "indy": "Indy (poulet curry)",
+    "oggi": "Oggi",
+    "emmental": "Emmental",
+    "parmesan": "Parmesan",
+    "chicken": "Poulet",
+    "noChicken": "Sans poulet",
+    "scampi": "Scampi",
+    "lasagna": "Lasagne",
+    "burrata": "Burrata di Bufala",
+    "cherryTomatoes": "Tomates cerises au pesto",
+    "cheesecake": "Cheesecake Caramel",
+    "chocolateCake": "Moelleux Chocolat",
+    "tiramisu": "Tiramisu",
+    "softDrink": "Soft"
+  },
+  "navigation": {
+    "menu": "Menu",
+    "enterprise": "Entreprise"
+  },
+  "footer": {
+    "allRightsReserved": "Tous droits réservés."
+  }
 }
