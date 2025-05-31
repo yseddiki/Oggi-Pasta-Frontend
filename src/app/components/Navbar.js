@@ -1,17 +1,20 @@
+// src/app/components/Navbar.js
 "use client";
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import {Link, useRouter, usePathname} from '../../i18n/navigation';
+import {useLocale, useTranslations} from 'next-intl';
 
-const Navbar = ({ onLanguageChange }) => {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState('en'); // Default to 'en'
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const t = useTranslations('navigation');
 
-  const handleLanguageChange = (e) => {
-    const selectedLanguage = e.target.value;
-    setLanguage(selectedLanguage);
-    onLanguageChange(selectedLanguage); // Notify parent component
+  const handleLanguageChange = (newLocale) => {
+    router.replace(pathname, {locale: newLocale});
   };
 
   return (
@@ -19,7 +22,7 @@ const Navbar = ({ onLanguageChange }) => {
       <div className="flex justify-between items-center p-4">
         {/* Logo Section */}
         <div className="flex items-center space-x-2">
-          <Link href="/" locale={language} className="hover:underline">
+          <Link href="/" className="hover:underline">
             <Image src="/logo.jpg" alt="Logo" width={80} height={40} />
           </Link>
         </div>
@@ -31,35 +34,69 @@ const Navbar = ({ onLanguageChange }) => {
           <span className="text-2xl">&#9776;</span>
         </button>
 
-        <div className="hidden md:flex space-x-4 pr-6">
-          <Link href="/menu" locale={language} className="hover:underline">
-            Menu
+        <div className="hidden md:flex space-x-4 pr-6 items-center">
+          <Link href="/menu" className="hover:underline">
+            {t('menu')}
           </Link>
-          <Link href="/entreprise" locale={language} className="hover:underline">
-            Entreprise
+          <Link href="/entreprise" className="hover:underline">
+            {t('enterprise')}
           </Link>
-          <select
-            value={language}
-            onChange={handleLanguageChange}
-            className="text-white bg-primary rounded"
-            style={{ backgroundColor: 'var(--primary)', border: 'none' }}
-          >
-            <option value="en">EN</option>
-            <option value="fr">FR</option>
-            <option value="nl">NL</option>
-          </select>
+          
+          {/* Language Switcher */}
+          <div className="flex space-x-2">
+            <button
+              onClick={() => handleLanguageChange('en')}
+              className={`px-2 py-1 rounded ${locale === 'en' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => handleLanguageChange('fr')}
+              className={`px-2 py-1 rounded ${locale === 'fr' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+            >
+              FR
+            </button>
+            <button
+              onClick={() => handleLanguageChange('nl')}
+              className={`px-2 py-1 rounded ${locale === 'nl' ? 'bg-white text-black' : 'hover:bg-gray-700'}`}
+            >
+              NL
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col space-y-2 p-4 bg-gray-700">
-          <Link href="/menu" locale={language} className="hover:underline">
-            Menu
+          <Link href="/menu" className="hover:underline">
+            {t('menu')}
           </Link>
-          <Link href="/entreprise" locale={language} className="hover:underline">
-            Entreprise
+          <Link href="/entreprise" className="hover:underline">
+            {t('enterprise')}
           </Link>
+          
+          {/* Mobile Language Switcher */}
+          <div className="flex space-x-2 pt-2">
+            <button
+              onClick={() => handleLanguageChange('en')}
+              className={`px-2 py-1 rounded ${locale === 'en' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => handleLanguageChange('fr')}
+              className={`px-2 py-1 rounded ${locale === 'fr' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+            >
+              FR
+            </button>
+            <button
+              onClick={() => handleLanguageChange('nl')}
+              className={`px-2 py-1 rounded ${locale === 'nl' ? 'bg-white text-black' : 'hover:bg-gray-600'}`}
+            >
+              NL
+            </button>
+          </div>
         </div>
       )}
     </nav>
