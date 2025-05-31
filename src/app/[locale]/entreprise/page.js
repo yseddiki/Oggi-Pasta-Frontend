@@ -1,7 +1,7 @@
 // src/app/[locale]/entreprise/page.js
 import {getTranslations} from 'next-intl/server';
 
-export default async function EntrepriseForfait() {
+export default async function EntrepriseForfait({params: {locale}}) {
   const t = await getTranslations('navigation');
   
   return (
@@ -10,6 +10,7 @@ export default async function EntrepriseForfait() {
       <p className="text-lg mb-8">
         Welcome to the Enterprise page. Here you can find information about our enterprise packages and offers.
       </p>
+      <p className="text-sm text-gray-500">Current locale: {locale}</p>
     </div>
   );
 }

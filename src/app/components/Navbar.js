@@ -36,10 +36,7 @@ const Navbar = () => {
     startTransition(() => {
       try {
         router.replace(pathname, {locale: newLocale});
-        // Force a hard refresh to ensure the new locale loads
-        setTimeout(() => {
-          window.location.reload();
-        }, 100);
+        // Remove the forced reload - next-intl handles this automatically
       } catch (error) {
         console.error('Language change error:', error);
         // Fallback: navigate manually

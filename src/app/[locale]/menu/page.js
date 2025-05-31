@@ -3,6 +3,11 @@ import {getTranslations} from 'next-intl/server';
 
 export default async function Menu() {
   const t = await getTranslations();
+  
+  // Ensure that the translations are loaded correctly
+  if (!t) {
+    throw new Error('Translations not found');
+  }
 
   const menuItems = [
     {
