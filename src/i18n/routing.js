@@ -5,25 +5,26 @@ export const routing = defineRouting({
   // A list of all locales that are supported
   locales: ['en', 'fr', 'nl'],
   
-  // Used when no locale matches
+  // Used when no locale matches - this will redirect / to /en
   defaultLocale: 'en',
-  
-  // The pathname where users will be redirected when they visit
-  // a locale that doesn't have a dedicated domain (Domain Routing only)
-  localePrefix: 'always', // Always show locale prefix in URL
-  
-  // Optional: Define pathnames for each locale if you want different URLs
-  // pathnames: {
-  //   '/': '/',
-  //   '/menu': {
-  //     en: '/menu',
-  //     fr: '/menu',
-  //     nl: '/menu'
-  //   },
-  //   '/entreprise': {
-  //     en: '/enterprise',
-  //     fr: '/entreprise', 
-  //     nl: '/bedrijf'
-  //   }
-  // }
-});
+
+  // Add this to routing.js if you want browser language detection
+  localeDetection: true,
+    
+    // Always show locale prefix in URL
+    localePrefix: 'always',
+    
+    pathnames: {
+      '/': '/',
+      '/menu': {
+        en: '/menu',
+        fr: '/menu',
+        nl: '/menu'
+      },
+      '/entreprise': {
+        en: '/enterprise',
+        fr: '/entreprise', 
+        nl: '/bedrijf'
+      }
+    }
+  });

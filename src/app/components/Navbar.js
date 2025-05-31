@@ -9,15 +9,42 @@ import {useLocale, useTranslations} from 'next-intl';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-  const t = useTranslations('navigation');
+  
+  // Add error handling for hooks
+  let locale, router, pathname, t;
+  
+  try {
+    locale = useLocale();
+    router = useRouter();
+    pathname = usePathname();
+    t = useTranslations('navigation');
+  } catch (error) {
+    console.error('Navbar error:', error);
+    // Fallback values
+    locale = 'en';
+    router = null;
+    pathname = '/';
+    t = (key) => key; // Fallback translation function
+  }
 
   const handleLanguageChange = (newLocale) => {
+    if (!router) {
+      console.error('Router not available');
+      return;
+    }
+    
     startTransition(() => {
-      router.replace(pathname, {locale: newLocale});
-      router.refresh();
+      try {
+        router.replace(pathname, {locale: newLocale});
+        // Force a hard refresh to ensure the new locale loads
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
+      } catch (error) {
+        console.error('Language change error:', error);
+        // Fallback: navigate manually
+        window.location.href = `/${newLocale}${pathname}`;
+      }
     });
   };
 
