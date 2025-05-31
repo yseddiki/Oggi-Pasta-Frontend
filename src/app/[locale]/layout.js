@@ -1,24 +1,58 @@
-// src/app/[locale]/page.js
-import React from 'react';
-import {Link} from '../../i18n/navigation';
-import {getTranslations} from 'next-intl/server';
+// src/app/[locale]/layout.js
+import { Geist, Geist_Mono } from "next/font/google";
+import "../globals.css";
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import {NextIntlClientProvider} from 'next-intl';
+import {getMessages} from 'next-intl/server';
+import {routing} from '../../i18n/routing';
+import {notFound} from 'next/navigation';
 
-export default async function Home() {
-  const t = await getTranslations();
-  
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
+
+export default async function RootLayout({ children, params: {locale} }) {
+  // Ensure that the incoming `locale` is valid
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="text-center pt-50">
-        <h1 className="text-4xl font-bold mb-4">{t('welcomeTitle')}</h1>
-        <p className="text-lg text-gray-600">
-          {t('welcomeDescription')}
-        </p>
-        <button className="mt-6 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          <Link href="/menu">
-            {t('exploreMenu')}
-          </Link>
-        </button>
-      </main>
-    </div>
+    <html lang={locale}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          <div className="pt-16">{/* Add padding to avoid overlap with fixed navbar */}
+            {children}
+          </div>
+          {/* Footer will be displayed on all pages */}
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
+}
+
+export async function generateMetadata({params: {locale}}) {
+  const messages = await getMessages({locale});
+  
+  return {
+    title: 'Oggi Pasta',
+    description: messages.welcomeDescription || 'Discover the finest pasta dishes made with love and fresh ingredients.',
+  };
 }
