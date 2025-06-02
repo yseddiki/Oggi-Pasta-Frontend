@@ -194,135 +194,135 @@ const ContactForm = ({ locale }) => {
     return texts[locale] || texts.en;
   };
 
-return (
+  return (
     <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold mb-6 text-gray-800">
-            {locale === 'fr' ? 'Demande de Devis' : locale === 'nl' ? 'Offerte Aanvragen' : 'Request a Quote'}
-        </h3>
-        
-        {status && (
-            <div className={`p-4 rounded-lg mb-6 ${
-                status === 'success' 
-                    ? 'bg-green-100 text-green-800 border border-green-300' 
-                    : 'bg-red-100 text-red-800 border border-red-300'
-            }`}>
-                {getStatusMessage()}
-            </div>
-        )}
+      <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+        {locale === 'fr' ? 'Demande de Devis' : locale === 'nl' ? 'Offerte Aanvragen' : 'Request a Quote'}
+      </h3>
+      
+      {status && (
+        <div className={`p-4 rounded-lg mb-6 ${
+          status === 'success' 
+            ? 'bg-green-100 text-green-800 border border-green-300' 
+            : 'bg-red-100 text-red-800 border border-red-300'
+        }`}>
+          {getStatusMessage()}
+        </div>
+      )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        {getLabel('name')}
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        placeholder={getPlaceholder('name')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                    />
-                </div>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('name')}
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              placeholder={getPlaceholder('name')}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            />
+          </div>
 
-                <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        {getLabel('email')}
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        placeholder={getPlaceholder('email')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                    />
-                </div>
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('email')}
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              placeholder={getPlaceholder('email')}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            />
+          </div>
 
-                <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                        {getLabel('company')}
-                    </label>
-                    <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                        required
-                        placeholder={getPlaceholder('company')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                    />
-                </div>
+          <div>
+            <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('company')}
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+              placeholder={getPlaceholder('company')}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            />
+          </div>
 
-                <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        {getLabel('phone')}
-                    </label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder={getPlaceholder('phone')}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                    />
-                </div>
-                <div className="md:col-span-2">
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                        {getLabel('service')}
-                    </label>
-                    <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                    >
-                        {getServiceOptions().map((option) => (
-                            <option key={option.value} value={option.value}>
-                                {option.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
-
-            <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    {getLabel('message')}
-                </label>
-                <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    placeholder={getPlaceholder('message')}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
-                />
-            </div>
-
-            <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`w-full py-3 px-6 rounded-md font-semibold text-white transition-colors ${
-                    isSubmitting
-                        ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-primary hover:bg-green-700 focus:ring-2 focus:ring-primary focus:ring-offset-2'
-                }`}
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('phone')}
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder={getPlaceholder('phone')}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            />
+          </div>
+          <div className="md:col-span-2">
+            <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('service')}
+            </label>
+            <select
+              id="service"
+              name="service"
+              value={formData.service}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
             >
-                {getSubmitButtonText()}
-            </button>
-        </form>
+              {getServiceOptions().map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+            {getLabel('message')}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={5}
+            placeholder={getPlaceholder('message')}
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`w-full py-3 px-6 rounded-md font-semibold text-white transition-colors ${
+            isSubmitting
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-primary hover:bg-green-700 focus:ring-2 focus:ring-primary focus:ring-offset-2'
+          }`}
+        >
+          {getSubmitButtonText()}
+        </button>
+      </form>
     </div>
-);
+  );
 };
 
 export default ContactForm;

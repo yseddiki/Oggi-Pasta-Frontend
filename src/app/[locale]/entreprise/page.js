@@ -12,7 +12,7 @@ export default async function EntreprisePage({params}) {
   return (
     <div className="min-h-screen mt-12 bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-primary to-green-700 text-white py-16">
+      <div className="bg-gradient-to-r from-primary to-green-700 text-white py-12">
         <div className="max-w-6xl mx-auto px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{t('navigation.enterprise')}</h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto">
@@ -26,7 +26,7 @@ export default async function EntreprisePage({params}) {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-8 py-16">
+      <div className="max-w-6xl mx-auto px-8 py-12">
         {/* Services Description */}
         <div className="mb-16">
           <p className="text-lg mb-12 text-center text-gray-600 max-w-4xl mx-auto">
@@ -58,7 +58,6 @@ export default async function EntreprisePage({params}) {
                     'Perfect for small teams of 5-15 people. Ideal for regular team lunches.'
                   }
                 </p>
-                <div className="text-2xl font-bold text-primary mb-2">€12/person</div>
                 <p className="text-sm text-gray-500">
                   {locale === 'fr' ? 'Prix dégressif selon volume' : locale === 'nl' ? 'Volumekortingen beschikbaar' : 'Volume discounts available'}
                 </p>
@@ -67,7 +66,7 @@ export default async function EntreprisePage({params}) {
             
             <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow border-2 border-primary">
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
@@ -86,7 +85,6 @@ export default async function EntreprisePage({params}) {
                     'Ideal for large companies of 15+ people. Complete solution with dedicated service.'
                   }
                 </p>
-                <div className="text-2xl font-bold text-primary mb-2">€10/person</div>
                 <p className="text-sm text-gray-500">
                   {locale === 'fr' ? 'Tarifs préférentiels entreprise' : locale === 'nl' ? 'Voorkeurtarieven voor bedrijven' : 'Preferential corporate rates'}
                 </p>
