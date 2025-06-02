@@ -59,9 +59,9 @@ const translations = {
     nl: "Adres"
   },
   addressDetails: {
-    en: "Chaussée de Charleroi 132, 1060 Saint-Gilles, Brussels",
-    fr: "Chaussée de Charleroi 132, 1060 Saint-Gilles, Bruxelles",
-    nl: "Chaussée de Charleroi 132, 1060 Sint-Gillis, Brussel"
+    en: "35 Rue De Vergnies, 1050 Ixelles, Belgium",
+    fr: "35 Rue De Vergnies, 1050 Ixelles, Belgique",
+    nl: "Vergniesstraat 35, 1050 Elsene, België"
   },
   phone: {
     en: "Phone",
@@ -74,20 +74,10 @@ const translations = {
     nl: "Openingsuren"
   },
   hoursWeekdays: {
-    en: "Mon-Thu: 11:30am-10:00pm",
-    fr: "Lun-Jeu: 11h30-22h00",
-    nl: "Ma-Do: 11u30-22u00"
+    en: "Mon-Sun: 11:30am-11:00pm",
+    fr: "Lun-Dim: 11h30–23h00",
+    nl: "Ma-Zo: 11u30–23u00"
   },
-  hoursWeekend: {
-    en: "Fri-Sat: 11:30am-10:30pm", 
-    fr: "Ven-Sam: 11h30-22h30",
-    nl: "Vr-Za: 11u30-22u30"
-  },
-  hoursSunday: {
-    en: "Sun: 12:00pm-9:30pm",
-    fr: "Dim: 12h00-21h30",
-    nl: "Zo: 12u00-21u30"
-  }
 };
 
 export default function Home() {
@@ -165,8 +155,6 @@ export default function Home() {
                     </h3>
                     <div className="space-y-1">
                       <p>{translate(translations.hoursWeekdays)}</p>
-                      <p>{translate(translations.hoursWeekend)}</p>
-                      <p>{translate(translations.hoursSunday)}</p>
                     </div>
                   </div>
                 </div>
