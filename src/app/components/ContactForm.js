@@ -29,15 +29,37 @@ const ContactForm = ({ locale }) => {
     setStatus('');
 
     try {
-      const response = await fetch('/api/send-email', {
+      // Validate required fields
+      if (!formData.name || !formData.email || !formData.company) {
+        setStatus('error');
+        return;
+      }
+
+      // Prepare form data for Formspree
+      const formDataToSend = new FormData();
+      
+      // Add form fields
+      Object.keys(formData).forEach(key => {
+        if (formData[key]) {
+          formDataToSend.append(key, formData[key]);
+        }
+      });
+
+      // Add additional metadata
+      formDataToSend.append('_subject', `New Enterprise Inquiry from ${formData.company}`);
+      formDataToSend.append('_language', locale);
+      formDataToSend.append('_cc', 'youssef.seddiki@cbre.com'); // Optional: CC yourself
+      
+      // Add honeypot for spam protection
+      formDataToSend.append('_gotcha', '');
+
+      // Send to Formspree
+      const response = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT, {
         method: 'POST',
+        body: formDataToSend,
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          locale
-        }),
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
@@ -84,6 +106,11 @@ const ContactForm = ({ locale }) => {
         fr: 'Numéro de téléphone',
         nl: 'Telefoonnummer'
       },
+      employees: {
+        en: 'Number of Employees',
+        fr: 'Nombre d\'employés',
+        nl: 'Aantal werknemers'
+      },
       service: {
         en: 'Service Interested In',
         fr: 'Service qui vous intéresse',
@@ -120,7 +147,11 @@ const ContactForm = ({ locale }) => {
         fr: '+32 2 XXX XX XX',
         nl: '+32 2 XXX XX XX'
       },
-     
+      employees: {
+        en: 'e.g., 5-15, 15+, etc.',
+        fr: 'ex: 5-15, 15+, etc.',
+        nl: 'bijv. 5-15, 15+, enz.'
+      },
       message: {
         en: 'Tell us about your catering needs, event details, or any questions...',
         fr: 'Parlez-nous de vos besoins en restauration, détails de l\'événement, ou toute question...',
@@ -211,6 +242,9 @@ const ContactForm = ({ locale }) => {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Honeypot field for spam protection - hidden from users */}
+        <input type="text" name="_gotcha" style={{ display: 'none' }} />
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -274,7 +308,23 @@ const ContactForm = ({ locale }) => {
               className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
             />
           </div>
-          <div className="md:col-span-2">
+
+          <div>
+            <label htmlFor="employees" className="block text-sm font-medium text-gray-700 mb-2">
+              {getLabel('employees')}
+            </label>
+            <input
+              type="text"
+              id="employees"
+              name="employees"
+              value={formData.employees}
+              onChange={handleChange}
+              placeholder={getPlaceholder('employees')}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary"
+            />
+          </div>
+
+          <div>
             <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
               {getLabel('service')}
             </label>
